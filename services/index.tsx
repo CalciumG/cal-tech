@@ -39,6 +39,41 @@ export const getPosts = async () => {
   )
   return result.postsConnection.edges
 }
+export const getPostDetails = async (slug: string) => {
+  const query = gql`
+    query GetPostDetails($slug: String!) {
+      post(where: { slug: $slug }) {
+        authors {
+          bio
+          id
+          name
+          picture {
+            url
+          }
+        }
+        createdAt
+        slug
+        title
+        excerpt
+        coverImage {
+          url
+        }
+        categories {
+          slug
+          name
+        }
+        content
+      }
+    }
+  `
+
+  const result = await request(
+    'https://api-eu-west-2.graphcms.com/v2/cl0wnvdb42d7001xvfwig6hsm/master',
+    query,
+    { slug }
+  )
+  return result.post
+}
 
 export const getRecentPosts = async () => {
   const query = gql`
@@ -86,7 +121,8 @@ export const getSimilarPosts = async (slug: string, categories: string[]) => {
 
   const result = await request(
     'https://api-eu-west-2.graphcms.com/v2/cl0wnvdb42d7001xvfwig6hsm/master',
-    query
+    query,
+    { categories, slug }
   )
   return result.posts
 }

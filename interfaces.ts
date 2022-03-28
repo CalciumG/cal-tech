@@ -2,6 +2,7 @@ export interface IPost {
   node: {
     title: string
     excerpt: string
+    slug: string
     coverImage: {
       url: string
       title: string
