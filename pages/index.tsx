@@ -23,7 +23,7 @@ const Home: NextPage = ({ posts }: any) => {
         <div className="col-span-1 lg:col-span-4">
           <div className="relative top-8 text-white lg:sticky">
             <PostWidget recentPost={posts[0]} />
-            {/* <Categories /> */}
+            <Categories />
           </div>
         </div>
       </div>

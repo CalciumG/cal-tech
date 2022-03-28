@@ -90,3 +90,20 @@ export const getSimilarPosts = async (slug: string, categories: string[]) => {
   )
   return result.posts
 }
+
+export const getCategories = async () => {
+  const query = gql`
+    query GetCategories {
+      categories {
+        name
+        slug
+      }
+    }
+  `
+
+  const result = await request(
+    'https://api-eu-west-2.graphcms.com/v2/cl0wnvdb42d7001xvfwig6hsm/master',
+    query
+  )
+  return result.categories
+}

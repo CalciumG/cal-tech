@@ -1,13 +1,19 @@
-import React, { useContext } from 'react'
-
+import React, { useContext, useState, useEffect } from 'react'
 import Link from 'next/link'
+import { ICategory } from '../interfaces/ICategory'
 
-const categories: { name: string; slug: string }[] = [
-  { name: 'React', slug: 'react' },
-  { name: 'Vue', slug: 'vue' },
-]
+import { getCategories } from '../services/index'
+
+interface Props {
+  category: ICategory
+}
 
 const Header = () => {
+  const [categories, setCategories] = useState<ICategory[]>([])
+  useEffect(() => {
+    getCategories().then((newCategories) => setCategories(newCategories))
+  }, [])
+
   return (
     <div className="container mx-auto mb-8 px-10">
       <div className="inline-block w-full border-b border-blue-400 py-8">
