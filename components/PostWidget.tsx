@@ -11,17 +11,18 @@ interface Props {
 
 const PostWidget = ({ recentPost }: Props) => {
   const [relatedPosts, setRelatedPosts] = useState<IRecentPost[]>([])
+  console.log(relatedPosts)
 
   useEffect(() => {
-    if (recentPost.slug && recentPost.categories) {
-      getSimilarPosts(recentPost.slug, recentPost.categories).then((result) =>
-        setRelatedPosts(result)
-      )
-    } else {
-      getRecentPosts().then((result) => {
-        setRelatedPosts(result)
-      })
-    }
+    // if (recentPost.slug) {
+    //   getSimilarPosts(recentPost.slug, relatedPosts.categories![0].name).then(
+    //     (result) => setRelatedPosts(result)
+    //   )
+    // } else {
+    getRecentPosts().then((result) => {
+      setRelatedPosts(result)
+    })
+    // }
   }, [recentPost.slug])
 
   return (

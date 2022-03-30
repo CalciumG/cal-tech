@@ -1,6 +1,11 @@
 export interface IRecentPost {
   slug?: string
-  categories?: string[]
+  categories?: [
+    {
+      name: string
+      slug: string
+    }
+  ]
   title?: string
   coverImage?: {
     url?: string
