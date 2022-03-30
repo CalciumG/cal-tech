@@ -33,10 +33,7 @@ export const getPosts = async () => {
     }
   `
 
-  const result = await request(
-    'https://api-eu-west-2.graphcms.com/v2/cl0wnvdb42d7001xvfwig6hsm/master',
-    query
-  )
+  const result = await request(graphqlAPI, query)
 
   return result.postsConnection.edges
 }
@@ -70,11 +67,7 @@ export const getPostDetails = async (slug: string) => {
     }
   `
 
-  const result = await request(
-    'https://api-eu-west-2.graphcms.com/v2/cl0wnvdb42d7001xvfwig6hsm/master',
-    query,
-    { slug }
-  )
+  const result = await request(graphqlAPI, query, { slug })
   return result.post
 }
 
@@ -95,10 +88,7 @@ export const getRecentPosts = async () => {
     }
   `
 
-  const result = await request(
-    'https://api-eu-west-2.graphcms.com/v2/cl0wnvdb42d7001xvfwig6hsm/master',
-    query
-  )
+  const result = await request(graphqlAPI, query)
 
   return result.posts
 }
@@ -123,11 +113,7 @@ export const getSimilarPosts = async (slug: string, categories: string[]) => {
     }
   `
 
-  const result = await request(
-    'https://api-eu-west-2.graphcms.com/v2/cl0wnvdb42d7001xvfwig6hsm/master',
-    query,
-    { categories, slug }
-  )
+  const result = await request(graphqlAPI, query, { categories, slug })
   return result.posts
 }
 
@@ -141,9 +127,6 @@ export const getCategories = async () => {
     }
   `
 
-  const result = await request(
-    'https://api-eu-west-2.graphcms.com/v2/cl0wnvdb42d7001xvfwig6hsm/master',
-    query
-  )
+  const result = await request(graphqlAPI, query)
   return result.categories
 }
