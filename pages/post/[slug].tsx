@@ -16,7 +16,6 @@ interface Props {
 }
 
 const PostDetails = ({ post }: Props) => {
-  console.log(post)
   return (
     <div className="container mx-auto mb-8 px-10">
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
@@ -41,8 +40,6 @@ export default PostDetails
 
 export async function getStaticProps({ params }: any) {
   const data = await getPostDetails(params.slug)
-
-  console.log(data)
 
   return {
     props: { post: data },

@@ -6,4 +6,5 @@ export interface IRecentPost {
     url?: string
   }
   createdAt?: Date
+  content?: string
 }

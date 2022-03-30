@@ -37,6 +37,7 @@ export const getPosts = async () => {
     'https://api-eu-west-2.graphcms.com/v2/cl0wnvdb42d7001xvfwig6hsm/master',
     query
   )
+
   return result.postsConnection.edges
 }
 export const getPostDetails = async (slug: string) => {
@@ -62,7 +63,9 @@ export const getPostDetails = async (slug: string) => {
           slug
           name
         }
-        content
+        content {
+          raw
+        }
       }
     }
   `
@@ -96,6 +99,7 @@ export const getRecentPosts = async () => {
     'https://api-eu-west-2.graphcms.com/v2/cl0wnvdb42d7001xvfwig6hsm/master',
     query
   )
+
   return result.posts
 }
 
