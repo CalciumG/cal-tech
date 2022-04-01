@@ -22,7 +22,7 @@ const PostDetails = ({ post }: Props) => {
         <div className="col-span-1 lg:col-span-8">
           <PostDetail post={post} />
           <Author author={post.authors[0]} />
-          <CommentsForm />
+          <CommentsForm slug={post.slug} />
           <Comments />
         </div>
         <div className="col-span-1 lg:col-span-4">
