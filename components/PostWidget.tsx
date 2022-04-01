@@ -11,7 +11,6 @@ interface Props {
 
 const PostWidget = ({ recentPost }: Props) => {
   const [relatedPosts, setRelatedPosts] = useState<IRecentPost[]>([])
-  console.log(relatedPosts)
 
   useEffect(() => {
     // if (recentPost.slug) {

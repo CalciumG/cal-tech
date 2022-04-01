@@ -1,6 +1,6 @@
 import { stringify } from 'querystring'
 import React, { useState, useEffect, useRef } from 'react'
-
+import { submitComment } from '../services/index'
 interface Props {
   slug: string
 }
@@ -17,10 +17,10 @@ const CommentsForm = ({ slug }: Props) => {
   const handleCommentSubmission = () => {
     setError(false)
 
-    const comment = commentEl.current
-    const name = nameEl.current
-    const email = emailEl.current
-    const storeData = storedDataEl.current
+    const comment = commentEl.current!.value
+    const name = nameEl.current!.value
+    const email = emailEl.current!.value
+    const storeData = storedDataEl.current!.value
 
     if (!comment || !email || !name) {
       setError(true)
@@ -30,12 +30,19 @@ const CommentsForm = ({ slug }: Props) => {
     const commentObj = { name, email, comment, slug }
 
     if (storeData) {
-      localStorage.setItem('name', name.innerHTML)
-      localStorage.setItem('email', email.innerHTML)
+      localStorage.setItem('name', name)
+      localStorage.setItem('email', email)
     } else {
       localStorage.removeItem('name')
       localStorage.removeItem('email')
     }
+
+    submitComment(commentObj).then((res) => {
+      setShowSucessMessage(true)
+      setTimeout(() => {
+        setShowSucessMessage(false)
+      }, 3000)
+    })
   }
 
   return (

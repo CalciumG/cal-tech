@@ -1,6 +1,7 @@
 import { request, gql } from 'graphql-request'
 
 const graphqlAPI: string = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT as string
+const graphcmsToken: string = process.env.GRAPHCMS_TOKEN as string
 
 export const getPosts = async () => {
   const query = gql`
@@ -129,4 +130,18 @@ export const getCategories = async () => {
 
   const result = await request(graphqlAPI, query)
   return result.categories
+}
+
+export const submitComment = async (obj: any) => {
+  const result = await fetch('/api/comments', {
+    method: 'POST',
+    headers: {
+      authorization: `Bearer ${graphcmsToken}`,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  })
+
+  return result.json()
 }
