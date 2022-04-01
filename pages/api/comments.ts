@@ -8,6 +8,8 @@ export default async function asynchandler(req: any, res: any) {
   const graphQLClient = new GraphQLClient(graphqlAPI!, {
     headers: {
       authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`,
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
   })
 

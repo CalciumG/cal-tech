@@ -1,6 +1,7 @@
 import { stringify } from 'querystring'
 import React, { useState, useEffect, useRef } from 'react'
 import { submitComment } from '../services/index'
+
 interface Props {
   slug: string
 }
