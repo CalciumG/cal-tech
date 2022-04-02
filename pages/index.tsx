@@ -11,8 +11,8 @@ const Home: NextPage = ({ posts }: any) => {
       <title>Create Next App</title>
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
         <div className="col-span-1 lg:col-span-8">
-          {posts.map((post: IPost) => (
-            <PostCard post={post} />
+          {posts.map((post: IPost, i: number) => (
+            <PostCard post={post} key={i} />
           ))}
         </div>
         <div className="col-span-1 lg:col-span-4">

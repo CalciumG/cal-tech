@@ -8,7 +8,6 @@ interface Props {
 
 const CommentsForm = ({ slug }: Props) => {
   const [error, setError] = useState(false)
-  // const [localStorage, setLocalStorage] = useState(null)
   const [showSucessMessage, setShowSucessMessage] = useState(false)
   const commentEl = useRef<HTMLTextAreaElement>(null)
   const nameEl = useRef<HTMLInputElement>(null)

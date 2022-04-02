@@ -1,5 +1,7 @@
 import React from 'react'
 import moment from 'moment'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendar } from '@fortawesome/free-solid-svg-icons'
 
 const PostDetail = ({ post }: any) => {
   const getContentFragment = (
@@ -75,7 +77,7 @@ const PostDetail = ({ post }: any) => {
       </div>
       <div className="px-4 lg:px-0">
         <div className="mb-6 flex w-full border-b">
-          <div className="bloc mb-6 w-full items-center justify-start text-center lg:flex">
+          <div className="bloc mb-6 w-full items-center justify-around text-center lg:flex">
             <div className="w-start mb-4 mr-8 flex lg:mb-0 lg:w-auto">
               <img
                 alt={post.authors[0].name}
@@ -88,11 +90,12 @@ const PostDetail = ({ post }: any) => {
             <p className="ml-2 inline align-middle text-lg text-gray-700">
               {post.authors[0].name}
             </p>
-          </div>
-          <div className="font-medium text-gray-700">
-            <span className="font-lg text-gray-500">
-              {moment(post.createdAt).format('MMM DD, YYYY')}
-            </span>
+            <div className="font-medium text-gray-500">
+              <FontAwesomeIcon icon={faCalendar} className="pr-2" />
+              <span className="font-lg text-gray-500">
+                {moment(post.createdAt).format('MMM DD, YYYY')}
+              </span>
+            </div>
           </div>
         </div>
         <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
