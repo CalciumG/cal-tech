@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ICategory } from '../interfaces/ICategory'
 
@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <div className="container mx-auto mb-8 px-10">
-      <div className="inline-block w-full border-b border-blue-400 py-8">
+      <div className="border-white-400 inline-block w-full border-b py-8">
         <div className="block md:float-left">
           <Link href="/">
             <span className="cursor-pointer text-4xl font-bold text-white">

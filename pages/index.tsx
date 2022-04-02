@@ -1,14 +1,9 @@
 import type { NextPage } from 'next'
-import { IPost } from '../interfaces'
+import { IPost } from '../interfaces/IPost'
 import Categories from '../components/Categories'
 import PostCard from '../components/PostCard'
 import PostWidget from '../components/PostWidget'
 import { getPosts } from '../services/index'
-
-// const posts: { title: string; excerpt: string }[] = [
-//   { title: 'React Typescript', excerpt: 'Learn React with Tailwind' },
-//   { title: 'Not Vue', excerpt: 'I prefer Vue' },
-// ]
 
 const Home: NextPage = ({ posts }: any) => {
   return (

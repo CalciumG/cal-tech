@@ -1,4 +1,4 @@
-export interface IPost {
+export interface INodePost {
   title: string
   excerpt: string
   slug: string

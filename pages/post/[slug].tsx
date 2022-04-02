@@ -1,7 +1,6 @@
 import React from 'react'
 import { getPostDetails, getPosts } from '../../services'
-import { IPost } from '../../interfaces'
-// import { getPosts, getPostDetails } from '../../services'
+import { INodePost } from '../../interfaces/INodePost'
 import {
   PostDetail,
   Categories,
@@ -12,7 +11,7 @@ import {
 } from '../../components'
 
 interface Props {
-  post: IPost
+  post: INodePost
 }
 
 const PostDetails = ({ post }: Props) => {

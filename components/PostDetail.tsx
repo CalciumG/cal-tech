@@ -74,8 +74,8 @@ const PostDetail = ({ post }: any) => {
         />
       </div>
       <div className="px-4 lg:px-0">
-        <div className="mb-8 flex w-full ">
-          <div className="bloc mb-8 w-full items-center justify-start text-center lg:flex">
+        <div className="mb-6 flex w-full border-b">
+          <div className="bloc mb-6 w-full items-center justify-start text-center lg:flex">
             <div className="w-start mb-4 mr-8 flex lg:mb-0 lg:w-auto">
               <img
                 alt={post.authors[0].name}

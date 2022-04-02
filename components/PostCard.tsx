@@ -1,5 +1,5 @@
 import React from 'react'
-import { IPost } from '../interfaces'
+import { IPost } from '../interfaces/IPost'
 import moment from 'moment'
 import Link from 'next/link'
 
@@ -33,11 +33,6 @@ const PostCard = ({ post }: Props) => {
         <p className="ml-2 inline align-middle text-lg text-gray-700">
           {post.node.authors[0].name}
         </p>
-        {/* <div className='font-medium text-gray-700'>
-          <svg xmlns="http://www.w3.org/2000/svg">
-
-          </svg>
-        </div> */}
       </div>
     </div>
   )
